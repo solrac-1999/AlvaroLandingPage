@@ -4,19 +4,17 @@ import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import ButtonSignin from "./ButtonSignin";
 import config from "@/config";
-import ButtonTheme from "./ButtonTheme";
+import CalendlyWidget, { CalendlyButtonMobile } from "./CalendlyWidget";
 
 const links: {
   href: string;
   label: string;
 }[] = [
-  { href: "/#features", label: "Funcionalidades" },
-  { href: "/#pricing", label: "Tarifas" },
-  { href: "/#testimonials", label: "Opiniones" },
-  { href: "/#faq", label: "FAQ" },
-  { href: "/#cta", label: "Registrarse" },
+  { href: "/#about", label: "Sobre Mí" },
+  { href: "/#results", label: "Resultados" },
+  { href: "/#testimonials", label: "Testimonios" },
+  { href: "/#contact", label: "Contacto" },
 ];
 
 const Header = () => {
@@ -28,9 +26,9 @@ const Header = () => {
   }, [searchParams]);
 
   return (
-    <header className="bg-neutral">
-      <nav className="container flex items-center justify-between px-8 py-4 mx-auto" aria-label="Global">
-        {/* Logo y nombre de la app */}
+    <header className="bg-base-100 fixed w-full z-50 shadow-lg border-b border-base-300">
+      <nav className="container flex items-center justify-between px-4 md:px-8 py-3 md:py-4 mx-auto" aria-label="Global">
+        {/* Logo y nombre */}
         <div className="flex lg:flex-1">
           <Link className="flex items-center gap-2 shrink-0" href="/" title={`${config.appName} homepage`}>
             <Image
@@ -41,36 +39,45 @@ const Header = () => {
               width={32}
               height={32}
             />
-            <span className="font-extrabold text-lg">{config.appName}</span>
+            <span className="font-extrabold text-base md:text-lg text-primary hidden sm:block">{config.appName}</span>
           </Link>
         </div>
 
         {/* Enlaces en pantallas grandes */}
-        <div className="hidden lg:flex lg:justify-center lg:gap-12 lg:items-center">
+        <div className="hidden lg:flex lg:justify-center lg:gap-6 xl:gap-8 lg:items-center">
           {links.map((link) => (
-            <Link href={link.href} key={link.href} className="link link-hover" title={link.label}>
+            <Link href={link.href} key={link.href} className="link link-hover text-sm font-medium text-base-content hover:text-primary transition-colors" title={link.label}>
               {link.label}
             </Link>
           ))}
         </div>
 
-        {/* CTA y tema en pantallas grandes */}
-        <div className="hidden lg:flex lg:items-center lg:gap-4 lg:flex-1 lg:justify-end">
-          <ButtonSignin extraStyle="btn-primary" />
+        {/* CTA en pantallas grandes */}
+        <div className="hidden lg:flex lg:items-center lg:gap-3 lg:flex-1 lg:justify-end">
+          <CalendlyWidget />
         </div>
-        
-        {/* Botón de cambio de tema alineado completamente a la derecha */}
-        <div className="absolute right-8">
-          <ButtonTheme />
+
+        {/* Botón menú móvil */}
+        <div className="lg:hidden flex items-center gap-2">
+          <button
+            type="button"
+            className="-m-2.5 rounded-md p-2 text-base-content"
+            onClick={() => setIsOpen(true)}
+          >
+            <span className="sr-only">Abrir menú</span>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+          </button>
         </div>
       </nav>
 
       {/* Menú móvil */}
       <div className={`fixed inset-0 z-50 ${isOpen ? "block" : "hidden"}`}>
-        <div className="fixed inset-0 bg-neutral/50" onClick={() => setIsOpen(false)}></div>
-        <div className="fixed inset-y-0 right-0 z-10 w-3/4 px-8 py-4 overflow-y-auto bg-neutral sm:ring-1 sm:ring-neutral/10 transform transition ease-in-out duration-300">
+        <div className="fixed inset-0 bg-black/50" onClick={() => setIsOpen(false)}></div>
+        <div className="fixed inset-y-0 right-0 z-10 w-full sm:w-80 px-6 py-4 overflow-y-auto bg-base-100 sm:ring-1 sm:ring-base-300 transform transition ease-in-out duration-300 border-l border-base-300">
           {/* Logo en móvil */}
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between mb-8">
             <Link className="flex items-center gap-2" href="/" title={`${config.appName} homepage`}>
               <Image
                 src={'/icon.png'}
@@ -80,11 +87,11 @@ const Header = () => {
                 width={32}
                 height={32}
               />
-              <span className="font-extrabold text-lg">{config.appName}</span>
+              <span className="font-extrabold text-lg text-primary">{config.appName}</span>
             </Link>
             <button
               type="button"
-              className="-m-2.5 rounded-md p-2.5"
+              className="-m-2.5 rounded-md p-2.5 text-base-content"
               onClick={() => setIsOpen(false)}
             >
               <span className="sr-only">Cerrar menú</span>
@@ -95,17 +102,23 @@ const Header = () => {
           </div>
 
           {/* Enlaces del menú móvil */}
-          <div className="mt-6">
+          <div className="mt-6 space-y-4">
             {links.map((link) => (
-              <Link href={link.href} key={link.href} className="block py-2 text-lg" title={link.label}>
+              <Link
+                href={link.href}
+                key={link.href}
+                className="block py-3 text-base font-medium border-b border-base-300 text-base-content hover:text-primary transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
                 {link.label}
               </Link>
             ))}
           </div>
-          <div className="divider"></div>
+
           {/* CTA en móvil */}
-          <ButtonSignin extraStyle="btn-primary" />
-          <ButtonTheme />
+          <div className="mt-8">
+            <CalendlyButtonMobile />
+          </div>
         </div>
       </div>
     </header>
@@ -113,3 +126,4 @@ const Header = () => {
 };
 
 export default Header;
+

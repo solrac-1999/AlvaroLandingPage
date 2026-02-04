@@ -10,7 +10,7 @@ const config: Config = {
     extend: {
       backgroundImage: {
         gradient:
-          "linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82)",
+          "linear-gradient(135deg, #FFD700 0%, #FFC107 50%, #FFD700 100%)",
       },
       animation: {
         opacity: "opacity 0.25s ease-in-out",
@@ -66,37 +66,24 @@ const config: Config = {
   daisyui: {
     themes: [
       {
-        light: {
-          "base-content": "1c293e",//"#131B24",
-          "primary": "#005aa3",
-          "primary-content": "#ffffff",
-          "secondary": "#4b5872",
-          "accent": "#6b4e79",
-          "neutral": "#d5e6f7",
-          "base-100": "#ffffff",
-          "base-200": "#F5F5F5",
-          "base-300": "#E0E0E0",
-          "info": "#00264c",
-          "success": "#84cc16",
-          "warning": "#fde047",
-          "error": "#ae1919",
+        darkmodern: {
+          "base-content": "#F5F5F5", // Blanco cálido - excelente contraste
+          "primary": "#FFD700",      // Amarillo dorado vibrante
+          "primary-content": "#000000",
+          "secondary": "#1A1A1A",    // Negro suave
+          "secondary-content": "#F5F5F5",
+          "accent": "#FFD700",       // Amarillo para acentos
+          "neutral": "#1A1A1A",      // Fondo negro principal
+          "base-100": "#0a0a0a",     // Negro muy oscuro
+          "base-200": "#1A1A1A",     // Negro suave
+          "base-300": "#2D2D2D",     // Gris oscuro
+          "info": "#FFD700",
+          "success": "#22c55e",
+          "warning": "#FFD700",
+          "error": "#dc2626",
 
-          "--primary-focus": "#005aa3eb",
-          "--secondary-focus": "#4b5872eb",
-        },
-        dark: {
-          "base-content": "#E5E9F0", 
-          "primary": "#3A7AC5",      
-          "secondary": "#8795A1",    
-          "accent": "#B58BD9",       
-          "neutral": "#394452",       
-          "base-100": "#1A202C",      
-          "info": "#5A8CC8",          
-          "success": "#7FB519",      
-          "warning": "#FACC15",       
-          "error": "#E63B3B",         
-        
-          "--primary-focus": "#3A7AC5CC"  
+          "--primary-focus": "#E6C200",
+          "--secondary-focus": "#000000",
         }
       }
     ]

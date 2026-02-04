@@ -6,8 +6,8 @@ import configFile from "@/config";
 import User from "@/models/User";
 import { findCheckoutSession } from "@/libs/stripe";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-  apiVersion: "2023-08-16",
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || "sk_test_stub", {
+  apiVersion: "2025-01-27.acacia" as any,
   typescript: true,
 });
 const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
@@ -28,10 +28,11 @@ export async function POST(req: NextRequest) {
 
   // verify Stripe event is legit
   try {
-    event = stripe.webhooks.constructEvent(body, signature, webhookSecret);
+    event = stripe.webhooks.constructEvent(body, signature || "", webhookSecret || "");
   } catch (err) {
-    console.error(`Webhook signature verification failed. ${err.message}`);
-    return NextResponse.json({ error: err.message }, { status: 400 });
+    const error = err as Error;
+    console.error(`Webhook signature verification failed. ${error.message}`);
+    return NextResponse.json({ error: error.message }, { status: 400 });
   }
 
   eventType = event.type;
@@ -160,7 +161,8 @@ export async function POST(req: NextRequest) {
       // Unhandled event type
     }
   } catch (e) {
-    console.error("stripe error: ", e.message);
+    const error = e as Error;
+    console.error("stripe error: ", error.message);
   }
 
   return NextResponse.json({});

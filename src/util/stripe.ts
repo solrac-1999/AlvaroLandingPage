@@ -1,5 +1,7 @@
 import Stripe from "stripe";
 
+const stripeSecretKey = process.env.STRIPE_SECRET_KEY || "";
+
 interface CreateCheckoutParams {
   priceId: string;
   mode: "payment" | "subscription";
@@ -27,10 +29,10 @@ export const createCheckout = async ({
   cancelUrl,
   priceId,
   couponId,
-}: CreateCheckoutParams): Promise<string> => {
+}: CreateCheckoutParams): Promise<string | null> => {
   try {
-    const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-      apiVersion: "2023-08-16", // TODO: update this when Stripe updates their API
+    const stripe = new Stripe(stripeSecretKey, {
+      apiVersion: "2025-12-15.clover" as any,
       typescript: true,
     });
 
@@ -48,8 +50,6 @@ export const createCheckout = async ({
     } else {
       if (mode === "payment") {
         extraParams.customer_creation = "always";
-        // The option below costs 0.4% (up to $2) per invoice. Alternatively, you can use https://zenvoice.io/ to create unlimited invoices automatically.
-        // extraParams.invoice_creation = { enabled: true };
         extraParams.payment_intent_data = { setup_future_usage: "on_session" };
       }
       if (user?.email) {
@@ -87,13 +87,13 @@ export const createCheckout = async ({
   }
 };
 
-// This is used to create Customer Portal sessions, so users can manage their subscriptions (payment methods, cancel, etc..)
+// This is used to create Customer Portal sessions, so users can manage their subscriptions
 export const createCustomerPortal = async ({
   customerId,
   returnUrl,
 }: CreateCustomerPortalParams): Promise<string> => {
-  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-    apiVersion: "2023-08-16", // TODO: update this when Stripe updates their API
+  const stripe = new Stripe(stripeSecretKey, {
+    apiVersion: "2025-12-15.clover" as any,
     typescript: true,
   });
 
@@ -105,11 +105,11 @@ export const createCustomerPortal = async ({
   return portalSession.url;
 };
 
-// This is used to get the uesr checkout session and populate the data so we get the planId the user subscribed to
+// This is used to get the user checkout session and populate the data
 export const findCheckoutSession = async (sessionId: string) => {
   try {
-    const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-      apiVersion: "2023-08-16", // TODO: update this when Stripe updates their API
+    const stripe = new Stripe(stripeSecretKey, {
+      apiVersion: "2025-12-15.clover" as any,
       typescript: true,
     });
 
@@ -123,3 +123,4 @@ export const findCheckoutSession = async (sessionId: string) => {
     return null;
   }
 };
+

@@ -49,7 +49,8 @@ export const sendOpenAi = async (
 
     return answer;
   } catch (e) {
-    console.error('GPT Error: ' + e?.response?.status, e?.response?.data);
+    const error = e as { response?: { status?: number; data?: unknown } };
+    console.error('GPT Error: ' + error.response?.status, error.response?.data);
     return null;
   }
 };

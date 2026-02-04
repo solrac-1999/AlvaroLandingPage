@@ -1,14 +1,17 @@
 import themes from "daisyui/src/theming/themes";
 import { ConfigProps } from "./config.types";
 
+// REQUIRED (no https://, not trialing slash at the end, just the naked domain)
+const domainName = "alvaropersonaltrainer.com";
+
 const config = {
   // REQUIRED
-  appName: "Fit Tracker",
+  appName: "Alvaro Personal Trainer",
   // REQUIRED: a short description of your app for SEO tags (can be overwritten)
   appDescription:
-    "La plataforma que profesionaliza e impulsa a los entrenadores personales y sus clientes.",
-  // REQUIRED (no https://, not trialing slash at the end, just the naked domain)
-  domainName: "fitTracker.com",
+    "Entrenamiento personal profesional para transformar tu cuerpo y vida. Planes personalizados de entrenamiento y nutrición adaptados a tus objetivos.",
+  // REQUIRED
+  domainName: domainName,
   crisp: {
     // Crisp website ID. IF YOU DON'T USE CRISP: just remove this => Then add a support email in this config file (mailgun.supportEmail) otherwise customer support won't work.
     id: "",
@@ -16,52 +19,62 @@ const config = {
     onlyShowOnRoutes: ["/"],
   },
   stripe: {
-    // Create multiple plans in your Stripe dashboard, then add them here. You can add as many plans as you want, just make sure to add the priceId
+    // Training packages - customize these in your Stripe dashboard
     plans: [
-      // {
-      //   // REQUIRED — we use this to find the plan in the webhook (for instance if you want to update the user's credits based on the plan)
-      //   priceId:
-      //     process.env.NODE_ENV === "development"
-      //       ? "price_1Niyy5AxyNprDp7iZIqEyD2h"
-      //       : "price_456",
-      //   // This plan will look different on the pricing page, it will be highlighted. You can only have one plan with isFeatured: true
-      //   isFeatured: true,
-      //   //  REQUIRED - Name of the plan, displayed on the pricing page
-      //   name: "Plan Gratuito",
-      //   // A friendly description of the plan, displayed on the pricing page. Tip: explain why this plan and not others
-      //   description: "Perfecto para todo tipo de proyectos",
-      //   // The price you want to display, the one user will be charged on Stripe.
-      //   price: 0,
-      //   // If you have an anchor price (i.e. $29) that you want to display crossed out, put it here. Otherwise, leave it empty
-      //   priceAnchor: 19,
-      //   features: [
-      //     {
-      //       name: "Acceso a todas las funcionalidades",
-      //     },
-      //     { name: "Personalización de tu perfil" },
-      //     { name: "Acceso a métricas" },
-      //     { name: "Soporte por correo" },
-      //     { name: "Hasta 15 clientes" },
-      //   ],
-      // },
       {
         priceId:
           process.env.NODE_ENV === "development"
-            ? "price_1O5KtcAxyNprDp7iftKnrrpw"
+            ? "price_online_mensual"
             : "price_456",
-        name: "Beta",
-        description: "Para entrenadores personales y gimnasios",
-        isFeatured: true,
-        price: 0,
-        priceAnchor: 99,
+        name: "Plan Online Mensual",
+        description: "Entrenamiento personalizado desde casa",
+        isFeatured: false,
+        price: 49,
+        priceAnchor: 79,
         features: [
-          { name: "Creación de plantillas y planes específicos" },
-          { name: "Creación de dietas" },
-          { name: "Gestión de clientes y pagos automatizados" },
-          { name: "Sin límites, clientes y plantillas ilimitados" },
-          { name: "Seguimiento de los clientes" },
-          { name: "Acceso a métricas de facturación y de clientes" },
-          { name: "Soporte por correo y por teléfono" },
+          { name: "Plan de entrenamiento mensual personalizado" },
+          { name: "Videos de ejercicios detallados" },
+          { name: "Chat de seguimiento semanal" },
+          { name: "Adaptación del plan según progreso" },
+          { name: "Acceso a app de seguimiento" },
+        ],
+      },
+      {
+        priceId:
+          process.env.NODE_ENV === "development"
+            ? "price_online_anual"
+            : "price_789",
+        name: "Plan Online Anual",
+        description: "Ahorra más con el compromiso anual",
+        isFeatured: true,
+        price: 399,
+        priceAnchor: 948,
+        features: [
+          { name: "Todo lo del plan mensual" },
+          { name: "Plan de nutrición incluido" },
+          { name: "Revisiones mensuales de progreso" },
+          { name: "Soporte priority por WhatsApp" },
+          { name: "Descuento en merchandising" },
+          { name: "2 meses gratis (ahorra €98)" },
+        ],
+      },
+      {
+        priceId:
+          process.env.NODE_ENV === "development"
+            ? "price_presencial"
+            : "price_101",
+        name: "Plan Presencial",
+        description: "Entrenamiento 1:1 en gimnasio",
+        isFeatured: false,
+        price: 299,
+        priceAnchor: 0,
+        features: [
+          { name: "Entrenamientos presenciales 2x/semana" },
+          { name: "Plan de nutrición personalizado" },
+          { name: "Evaluación corporal mensual" },
+          { name: "App de seguimiento 24/7" },
+          { name: "Acceso a comunidad privada" },
+          { name: "Sin permanencia" },
         ],
       },
     ],
@@ -76,20 +89,25 @@ const config = {
     // subdomain to use when sending emails, if you don't have a subdomain, just remove it. Highly recommended to have one (i.e. mg.yourdomain.com or mail.yourdomain.com)
     subdomain: "mg",
     // REQUIRED — Email 'From' field to be used when sending magic login links
-    fromNoReply: `FitTracker <fit.tracker.management@gmail.com>`,
+    fromNoReply: `Alvaro Personal Trainer <noreply@${domainName}>`,
     // REQUIRED — Email 'From' field to be used when sending other emails, like abandoned carts, updates etc..
-    fromAdmin: `EL equipo de FitTracker <fit.tracker.management@gmail.com>`,
+    fromAdmin: `Alvaro Personal Trainer <hola@${domainName}>`,
     // Email shown to customer if need support. Leave empty if not needed => if empty, set up Crisp above, otherwise you won't be able to offer customer support."
-    supportEmail: "fit.tracker.management@gmail.com",
+    supportEmail: `hola@${domainName}`,
     // When someone replies to supportEmail sent by the app, forward it to the email below (otherwise it's lost). If you set supportEmail to empty, this will be ignored.
-    forwardRepliesTo: "fit.tracker.management@gmail.com",
+    forwardRepliesTo: `hola@${domainName}`,
+  },
+  social: {
+    instagram: "https://instagram.com/alvaropersonaltrainer",
+    facebook: "https://facebook.com/alvaropersonaltrainer",
+    youtube: "https://youtube.com/@alvaropersonaltrainer",
   },
   colors: {
     // REQUIRED — The DaisyUI theme to use (added to the main layout.js). Leave blank for default (light & dark mode). If you any other theme than light/dark, you need to add it in config.tailwind.js in daisyui.themes.
-    theme: "light",
+    theme: "darkmodern",
     // REQUIRED — This color will be reflected on the whole app outside of the document (loading bar, Chrome tabs, etc..). By default it takes the primary color from your DaisyUI theme (make sure to update your the theme name after "data-theme=")
     // OR you can just do this to use a custom color: main: "#f37055". HEX only.
-    main: themes["light"]["primary"],
+    main: "#FFD700",
   },
   auth: {
     // REQUIRED — the path to log in users. It's use to protect private routes (like /dashboard). It's used in apiClient (/libs/api.js) upon 401 errors from our API
