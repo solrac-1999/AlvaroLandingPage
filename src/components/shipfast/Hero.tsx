@@ -24,7 +24,7 @@ const Hero = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-base-100 via-base-100 to-primary/5 z-0"></div>
 
       <div className="container mx-auto px-4 md:px-8 relative z-10">
-        <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-center">
+        <div className="flex flex-col lg:flex-row gap-4 lg:gap-8 items-center">
           {/* Texto a la izquierda */}
           <div className="lg:w-5/12 order-2 lg:order-1">
             {/* Urgency badge */}
@@ -69,13 +69,13 @@ const Hero = () => {
           </div>
 
           {/* Video a la derecha */}
-          <div className="lg:w-7/12 w-full order-1 lg:order-2">
+          <div className="lg:w-6/12 w-full order-1 lg:order-2 mb-8 lg:mb-0 lg:pl-9 lg:-mt-8">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-primary/20 bg-black w-full">
               {!isPlaying ? (
                 /* Thumbnail con botón de play */
                 <div className="relative w-full">
                   <video
-                    className="w-full h-auto max-h-[70vh] object-contain bg-black"
+                    className="w-full h-auto max-h-[55vh] object-contain bg-black"
                     src="/Hero.MOV"
                     preload="metadata"
                   />
@@ -98,7 +98,7 @@ const Hero = () => {
                 <video
                   autoPlay
                   controls
-                  className="w-full h-auto max-h-[70vh] object-contain bg-black"
+                  className="w-full h-auto max-h-[55vh] object-contain bg-black"
                   onEnded={() => setIsPlaying(false)}
                   src="/Hero.MOV"
                 >
