@@ -48,7 +48,7 @@ const CTA = () => {
                 </svg>
               </div>
               <h3 className="font-bold text-base md:text-lg mb-1 md:mb-2 text-primary-content">WhatsApp</h3>
-              <p className="text-xs md:text-sm opacity-90 text-primary-content">Respuesta en 1h</p>
+              <p className="text-xs md:text-sm opacity-90 text-primary-content">Respuesta rápida</p>
             </button>
 
             {/* YouTube */}

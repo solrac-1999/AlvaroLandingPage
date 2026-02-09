@@ -26,7 +26,7 @@ const Hero = () => {
       <div className="container mx-auto px-4 md:px-8 relative z-10">
         <div className="flex flex-col lg:flex-row gap-4 lg:gap-8 items-center">
           {/* Texto a la izquierda */}
-          <div className="lg:w-5/12 order-2 lg:order-1">
+          <div className="lg:w-11/20 order-1 lg:order-1">
             {/* Urgency badge */}
             <div className="inline-flex items-center gap-2 bg-primary text-primary-content px-3 py-2 rounded-full text-xs sm:text-sm font-semibold mb-4 sm:mb-6 animate-pulse">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 sm:h-4 sm:w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -37,7 +37,7 @@ const Hero = () => {
 
             <h1 className="font-extrabold text-3xl sm:text-4xl lg:text-5xl xl:text-6xl tracking-tight text-base-content leading-tight mb-4 sm:mb-6">
               Transforma tu cuerpo y tu vida con{" "}
-              <span className="text-primary">el método AUSSI</span>
+              <span className="text-primary">el método AQUI</span>
             </h1>
 
             <p className="text-base sm:text-lg md:text-xl opacity-90 leading-relaxed mb-6 sm:mb-8 max-w-xl text-base-content">
@@ -53,14 +53,14 @@ const Hero = () => {
               {benefitCards.map((card, index) => (
                 <div
                   key={index}
-                  className="flex items-center gap-3 p-3 rounded-xl border-2 border-yellow-400 bg-yellow-400/10"
+                  className="flex items-center gap-3 px-3 py-3 rounded-xl border-2 border-yellow-400 bg-yellow-400/10 max-w-fit"
                 >
                   <div className="w-6 h-6 rounded-full bg-yellow-400 flex items-center justify-center shrink-0">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
-                  <span className="text-sm sm:text-base font-medium text-base-content">
+                  <span className="text-sm sm:text-base font-medium text-base-content whitespace-nowrap">
                     {card.text}
                   </span>
                 </div>
@@ -69,13 +69,13 @@ const Hero = () => {
           </div>
 
           {/* Video a la derecha */}
-          <div className="lg:w-6/12 w-full order-1 lg:order-2 mb-8 lg:mb-0 lg:pl-9 lg:-mt-8">
+          <div className="lg:w-9/20 w-full order-2 lg:order-2 mb-8 lg:mb-0 lg:pl-9 lg:-mt-8">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-primary/20 bg-black w-full">
               {!isPlaying ? (
                 /* Thumbnail con botón de play */
                 <div className="relative w-full">
                   <video
-                    className="w-full h-auto max-h-[55vh] object-contain bg-black"
+                    className="w-full h-auto object-contain bg-black"
                     src="/Hero.MOV"
                     preload="metadata"
                   />
@@ -98,7 +98,7 @@ const Hero = () => {
                 <video
                   autoPlay
                   controls
-                  className="w-full h-auto max-h-[55vh] object-contain bg-black"
+                  className="w-full h-auto object-contain bg-black"
                   onEnded={() => setIsPlaying(false)}
                   src="/Hero.MOV"
                 >

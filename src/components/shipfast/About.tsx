@@ -42,7 +42,7 @@ const About = () => {
               </p>
 
               <p>
-              Aplica la metodología AUSSI: entrenamientos de fuerza de 30-45 minutos, alimentación flexible y acompañamiento de coaching para resultados sostenibles.
+              Aplica la metodología ALSOUI: entrenamientos de fuerza de 30-45 minutos, alimentación flexible y acompañamiento de coaching para resultados sostenibles.
               </p>
 
               <p>
