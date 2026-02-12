@@ -25,7 +25,7 @@ const Hero = () => {
 
       <div className="container mx-auto px-4 md:px-8 relative z-10">
         <div className="flex flex-col lg:flex-row gap-4 lg:gap-8 items-center">
-          {/* Texto a la izquierda */}
+          {/* Texto - order 1 on mobile, left on desktop */}
           <div className="lg:w-11/20 order-1 lg:order-1">
             {/* Urgency badge */}
             <div className="inline-flex items-center gap-2 bg-primary text-primary-content px-3 py-2 rounded-full text-xs sm:text-sm font-semibold mb-4 sm:mb-6 animate-pulse">
@@ -35,32 +35,34 @@ const Hero = () => {
               <span className="whitespace-nowrap">⏰ Pocas plazas disponibles</span>
             </div>
 
-            <h1 className="font-extrabold text-3xl sm:text-4xl lg:text-5xl xl:text-6xl tracking-tight text-base-content leading-tight mb-4 sm:mb-6">
+            <h1 className="font-extrabold text-3xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight text-base-content leading-tight mb-3 sm:mb-4 lg:mb-6">
               Transforma tu cuerpo y tu vida con{" "}
               <span className="text-primary">el método AQUI</span>
             </h1>
 
-            <p className="text-base sm:text-lg md:text-xl opacity-90 leading-relaxed mb-6 sm:mb-8 max-w-xl text-base-content">
+            <p className="text-base sm:text-lg md:text-xl opacity-90 leading-relaxed mb-4 sm:mb-6 lg:mb-8 max-w-xl text-base-content">
               Sistema de entrenamiento y nutrición adaptado a tus objetivos,
               sin cardio eterno, ni dietas de lechuga y entrenando menos de 1 hora
             </p>
 
-            {/* Calendly Button */}
-            <CalendlyButtonLarge />
+            {/* Calendly Button - visible only on desktop (inside text column) */}
+            <div className="hidden lg:block mb-6">
+              <CalendlyButtonLarge />
+            </div>
 
             {/* Benefit Cards */}
-            <div className="mt-8 space-y-3">
+            <div className="mt-6 sm:mt-8 space-y-3">
               {benefitCards.map((card, index) => (
                 <div
                   key={index}
-                  className="flex items-center gap-3 px-3 py-3 rounded-xl border-2 border-yellow-400 bg-yellow-400/10 max-w-fit"
+                  className="flex items-center gap-2 sm:gap-3 px-2 sm:px-3 py-2 sm:py-3 rounded-xl border-2 border-yellow-400 bg-yellow-400/10 max-w-fit"
                 >
-                  <div className="w-6 h-6 rounded-full bg-yellow-400 flex items-center justify-center shrink-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-yellow-400 flex items-center justify-center shrink-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 sm:h-4 sm:w-4 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
-                  <span className="text-sm sm:text-base font-medium text-base-content whitespace-nowrap">
+                  <span className="text-xs sm:text-sm font-medium text-base-content">
                     {card.text}
                   </span>
                 </div>
@@ -68,7 +70,7 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Video a la derecha */}
+          {/* Video - order 2 on mobile, right on desktop */}
           <div className="lg:w-9/20 w-full order-2 lg:order-2 mb-8 lg:mb-0 lg:pl-9 lg:-mt-8">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-primary/20 bg-black w-full">
               {!isPlaying ? (
@@ -107,6 +109,11 @@ const Hero = () => {
               )}
             </div>
           </div>
+
+          {/* Button - order 3 on mobile only, hidden on desktop */}
+          <div className="w-full order-3 lg:hidden flex justify-center">
+            <CalendlyButtonLarge />
+          </div>
         </div>
       </div>
     </section>
@@ -114,4 +121,3 @@ const Hero = () => {
 };
 
 export default Hero;
-

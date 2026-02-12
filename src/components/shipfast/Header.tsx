@@ -7,6 +7,47 @@ import Image from "next/image";
 import config from "@/config";
 import CalendlyWidget, { CalendlyButtonMobile } from "./CalendlyWidget";
 
+const CALENDLY_URL = "https://calendly.com/alvaromdpersonalfitness/30min";
+
+// Botón compacto para header móvil
+const CalendlyButtonHeaderMobile = () => {
+  const handleCalendlyClick = () => {
+    // @ts-ignore - Calendly se carga globalmente
+    if (window.Calendly) {
+      // @ts-ignore
+      window.Calendly.initPopupWidget({
+        url: CALENDLY_URL,
+        prefill: {},
+        utm: {},
+      });
+    }
+  };
+
+  return (
+    <button
+      onClick={handleCalendlyClick}
+      className="btn btn-primary text-primary-content btn-sm gap-1 px-2 py-1 text-xs"
+      aria-label="Agendar"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="h-3 w-3"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+        />
+      </svg>
+      <span className="hidden xs:inline">Agendar</span>
+    </button>
+  );
+};
+
 const links: {
   href: string;
   label: string;
@@ -39,7 +80,7 @@ const Header = () => {
               width={32}
               height={32}
             />
-            <span className="font-extrabold text-base md:text-lg text-primary hidden sm:block">{config.appName}</span>
+            <span className="font-extrabold text-sm sm:text-base md:text-lg text-primary">{config.appName}</span>
           </Link>
         </div>
 
@@ -52,13 +93,18 @@ const Header = () => {
           ))}
         </div>
 
-        {/* CTA en pantallas grandes */}
-        <div className="hidden lg:flex lg:items-center lg:gap-3 lg:flex-1 lg:justify-end">
-          <CalendlyWidget />
+        {/* CTA - visible en todas las pantallas */}
+        <div className="flex items-center gap-2 sm:gap-3 flex-1 justify-end">
+          <div className="lg:hidden">
+            <CalendlyButtonHeaderMobile />
+          </div>
+          <div className="hidden lg:block">
+            <CalendlyWidget />
+          </div>
         </div>
 
-        {/* Botón menú móvil */}
-        <div className="lg:hidden flex items-center gap-2">
+        {/* Botón menú móvil - solo en tablet/desktop pequeño */}
+        <div className="hidden sm:flex lg:hidden items-center gap-2 ml-2">
           <button
             type="button"
             className="-m-2.5 rounded-md p-2 text-base-content"
@@ -126,4 +172,3 @@ const Header = () => {
 };
 
 export default Header;
-
