@@ -5,10 +5,6 @@ import Image from "next/image";
 import config from "@/config";
 import CalendlyWidget from "./CalendlyWidget";
 
-interface HeaderProps {
-  onCloseMenu?: () => void;
-}
-
 const CALENDLY_URL = "https://calendly.com/alvaromdpersonalfitness/30min";
 
 // Botón compacto para header móvil
@@ -60,7 +56,7 @@ const links: {
   { href: "/#contact", label: "Contacto" },
 ];
 
-const Header = ({ onCloseMenu }: HeaderProps) => {
+const Header = () => {
   return (
     <header className="bg-base-100 fixed w-full z-50 shadow-lg border-b border-base-300">
       <nav className="container flex items-center justify-between px-4 md:px-8 py-3 md:py-4 mx-auto" aria-label="Global">

@@ -4,14 +4,14 @@ import { useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 
 interface HeaderSearchParamsProps {
-  onSearchParamsChange: () => void;
+  onSearchParamsChange?: () => void;
 }
 
 export default function HeaderSearchParams({ onSearchParamsChange }: HeaderSearchParamsProps) {
   const searchParams = useSearchParams();
 
   useEffect(() => {
-    onSearchParamsChange();
+    onSearchParamsChange?.();
   }, [searchParams, onSearchParamsChange]);
 
   return null;
