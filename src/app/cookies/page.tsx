@@ -42,56 +42,60 @@ const Cookies = () => {
             </div>
 
             <div className="mb-6">
-              <h3 className="text-xl font-bold mb-3 text-base-content">2.2 Cookies Analíticas</h3>
+              <h3 className="text-xl font-bold mb-3 text-base-content">2.2 Análisis Estadístico (Sin Cookies)</h3>
               <p className="mb-4">
-                Estas cookies nos ayudan a entender cómo los visitantes interactúan con nuestro sitio web, 
-                proporcionándonos información estadística anónima sobre el uso del sitio.
+                Utilizamos Plausible Analytics, una herramienta de análisis respetuosa con la privacidad que <strong>no utiliza cookies</strong> 
+                y no rastrea usuarios individuales. Toda la información es anónima y agregada.
               </p>
               <ul className="list-disc pl-6 space-y-2">
-                <li><strong>Proveedor:</strong> Google Analytics u otras herramientas de análisis.</li>
-                <li><strong>Finalidad:</strong> Analizar el tráfico y mejorar el sitio web.</li>
-                <li><strong>Información recopilada:</strong> Páginas visitadas, tiempo de navegación, fuentes de tráfico.</li>
-                <li><strong>Gestión:</strong> Puede desactivarlas a través del panel de preferencias.</li>
+                <li><strong>Proveedor:</strong> Plausible Analytics (alojado en la UE).</li>
+                <li><strong>Finalidad:</strong> Analizar el tráfico de forma anónima y mejorar el sitio web.</li>
+                <li><strong>Información recopilada:</strong> Datos agregados anónimos (páginas visitadas, tiempo de navegación).</li>
+                <li><strong>Privacidad:</strong> No utiliza cookies, no rastrea usuarios, cumple con GDPR.</li>
               </ul>
             </div>
           </section>
 
           <section className="mb-8">
-            <h2 className="text-2xl font-bold mb-4 text-base-content">3. Cookies Específicas que Utilizamos</h2>
-            <p className="mb-4">A continuación, detallamos las cookies específicas que utilizamos:</p>
+            <h2 className="text-2xl font-bold mb-4 text-base-content">3. Cookies y Tecnologías Utilizadas</h2>
+            <p className="mb-4">A continuación, detallamos las cookies y tecnologías de seguimiento que utilizamos:</p>
             
             <div className="overflow-x-auto">
               <table className="w-full border-collapse border border-base-300">
                 <thead>
                   <tr className="bg-base-200">
-                    <th className="border border-base-300 px-4 py-2 text-left">Cookie</th>
+                    <th className="border border-base-300 px-4 py-2 text-left">Tecnología</th>
                     <th className="border border-base-300 px-4 py-2 text-left">Proveedor</th>
                     <th className="border border-base-300 px-4 py-2 text-left">Finalidad</th>
-                    <th className="border border-base-300 px-4 py-2 text-left">Duración</th>
+                    <th className="border border-base-300 px-4 py-2 text-left">Tipo</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td className="border border-base-300 px-4 py-2">_ga</td>
-                    <td className="border border-base-300 px-4 py-2">Google Analytics</td>
-                    <td className="border border-base-300 px-4 py-2">Distinguir usuarios únicos</td>
-                    <td className="border border-base-300 px-4 py-2">2 años</td>
+                    <td className="border border-base-300 px-4 py-2">Plausible Analytics</td>
+                    <td className="border border-base-300 px-4 py-2">Plausible (UE)</td>
+                    <td className="border border-base-300 px-4 py-2">Análisis estadístico anónimo</td>
+                    <td className="border border-base-300 px-4 py-2">Sin cookies</td>
                   </tr>
                   <tr>
-                    <td className="border border-base-300 px-4 py-2">_gid</td>
-                    <td className="border border-base-300 px-4 py-2">Google Analytics</td>
-                    <td className="border border-base-300 px-4 py-2">Distinguir usuarios</td>
-                    <td className="border border-base-300 px-4 py-2">24 horas</td>
+                    <td className="border border-base-300 px-4 py-2">next-auth.session-token</td>
+                    <td className="border border-base-300 px-4 py-2">NextAuth.js</td>
+                    <td className="border border-base-300 px-4 py-2">Autenticación de usuarios (solo si inicia sesión)</td>
+                    <td className="border border-base-300 px-4 py-2">Técnica (sesión)</td>
                   </tr>
                   <tr>
-                    <td className="border border-base-300 px-4 py-2">_gat</td>
-                    <td className="border border-base-300 px-4 py-2">Google Analytics</td>
-                    <td className="border border-base-300 px-4 py-2">Limitar solicitudes</td>
-                    <td className="border border-base-300 px-4 py-2">1 minuto</td>
+                    <td className="border border-base-300 px-4 py-2">theme</td>
+                    <td className="border border-base-300 px-4 py-2">DaisyUI</td>
+                    <td className="border border-base-300 px-4 py-2">Preferencia de tema (claro/oscuro)</td>
+                    <td className="border border-base-300 px-4 py-2">Técnica (persistente)</td>
                   </tr>
                 </tbody>
               </table>
             </div>
+            <p className="mt-4 text-sm text-base-content/70">
+              <strong>Nota importante:</strong> No utilizamos cookies de terceros para publicidad ni seguimiento. 
+              Plausible Analytics no utiliza cookies y no recopila datos personales identificables.
+            </p>
           </section>
 
           <section className="mb-8">
@@ -117,16 +121,17 @@ const Cookies = () => {
           </section>
 
           <section className="mb-8">
-            <h2 className="text-2xl font-bold mb-4 text-base-content">5. Cookies de Terceros</h2>
+            <h2 className="text-2xl font-bold mb-4 text-base-content">5. Servicios de Terceros</h2>
             <p className="mb-4">
-              Nuestro sitio web puede utilizar servicios de terceros que instalan cookies en su dispositivo. 
-              Estas terceras partes incluyen:
+              Nuestro sitio web utiliza servicios de terceros que respetan la privacidad:
             </p>
             <ul className="list-disc pl-6 space-y-2">
-              <li><strong>Google Analytics:</strong> Para análisis estadístico del sitio web. Puede consultar su política de privacidad en: 
-                <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="link link-primary"> Google Privacy Policy</a></li>
-              <li><strong>Redes sociales:</strong> Plugins de redes sociales (Facebook, Instagram, YouTube) que pueden instalar cookies 
-                cuando interactúa con ellos.</li>
+              <li><strong>Plausible Analytics:</strong> Análisis estadístico anónimo sin cookies. 
+                <a href="https://plausible.io/privacy" target="_blank" rel="noopener noreferrer" className="link link-primary"> Política de privacidad de Plausible</a></li>
+              <li><strong>Stripe:</strong> Para procesamiento de pagos (solo si contrata servicios). 
+                <a href="https://stripe.com/privacy" target="_blank" rel="noopener noreferrer" className="link link-primary"> Política de privacidad de Stripe</a></li>
+              <li><strong>Redes sociales:</strong> Los enlaces a redes sociales (Instagram, YouTube) son enlaces directos y 
+                no instalan cookies hasta que usted haga clic en ellos.</li>
             </ul>
           </section>
 
@@ -145,7 +150,6 @@ const Cookies = () => {
             </p>
             <ul className="list-disc pl-6 space-y-2">
               <li><strong>Email:</strong> hola@alvaropersonaltrainer.com</li>
-              <li><strong>Teléfono:</strong> +34 625 672 358</li>
             </ul>
           </section>
         </div>
@@ -155,4 +159,3 @@ const Cookies = () => {
 };
 
 export default Cookies;
-

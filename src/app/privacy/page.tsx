@@ -23,11 +23,13 @@ const Privacy = () => {
               y la Ley Orgánica 3/2018, de 5 de diciembre, de Protección de Datos Personales y garantía de los derechos digitales (LOPDGDD):
             </p>
             <ul className="list-disc pl-6 space-y-2">
-              <li><strong>Responsable:</strong> Álvaro Personal Trainer</li>
-              <li><strong>NIF:</strong> [Tu NIF]</li>
-              <li><strong>Domicilio:</strong> [Tu dirección]</li>
-              <li><strong>Email:</strong> hola@alvaropersonaltrainer.com</li>
+              <li><strong>Responsable:</strong> Alvaro Martin Diaz</li>
+              <li><strong>Correo electrónico:</strong> hola@alvaropersonaltrainer.com</li>
             </ul>
+            <p className="mt-4 text-sm text-base-content/70">
+              Este sitio web es gestionado por un particular. Para cualquier consulta relacionada con la protección de datos, 
+              puede contactar a través del correo electrónico proporcionado.
+            </p>
           </section>
 
           <section className="mb-8">
@@ -103,7 +105,8 @@ const Privacy = () => {
             </ul>
             <p className="mt-4">
               Para ejercer estos derechos, puede enviar un correo electrónico a hola@alvaropersonaltrainer.com 
-              adjuntando copia de su documento de identidad.
+              indicando claramente el derecho que desea ejercer y proporcionando la información necesaria para 
+              identificar su solicitud.
             </p>
           </section>
 
@@ -141,4 +144,3 @@ const Privacy = () => {
 };
 
 export default Privacy;
-

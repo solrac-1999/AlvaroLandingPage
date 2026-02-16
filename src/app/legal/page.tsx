@@ -17,17 +17,17 @@ const Legal = () => {
           </p>
 
           <section className="mb-8">
-            <h2 className="text-2xl font-bold mb-4 text-base-content">1. Datos del Titular</h2>
+            <h2 className="text-2xl font-bold mb-4 text-base-content">1. Identificación del Titular</h2>
             <p className="mb-4">
-              En cumplimiento con el artículo 10 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), se exponen los siguientes datos:
+              En cumplimiento con el artículo 10 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), se exponen los siguientes datos de identificación:
             </p>
             <ul className="list-disc pl-6 space-y-2">
-              <li><strong>Titular:</strong> Álvaro Personal Trainer</li>
-              <li><strong>NIF:</strong> [Tu NIF]</li>
-              <li><strong>Domicilio:</strong> [Tu dirección]</li>
-              <li><strong>Email:</strong> hola@alvaropersonaltrainer.com</li>
-              <li><strong>Teléfono:</strong> +34 625 672 358</li>
+              <li><strong>Titular:</strong> Alvaro Martin Diaz</li>
+              <li><strong>Correo electrónico de contacto:</strong> hola@alvaropersonaltrainer.com</li>
             </ul>
+            <p className="mt-4 text-sm text-base-content/70">
+              Este sitio web es de carácter personal y no constituye una actividad empresarial formal. Para cualquier consulta, contacto o ejercicio de derechos, utilice el correo electrónico proporcionado.
+            </p>
           </section>
 
           <section className="mb-8">
@@ -93,7 +93,8 @@ const Legal = () => {
             <h2 className="text-2xl font-bold mb-4 text-base-content">8. Legislación Aplicable</h2>
             <p className="mb-4">
               El presente Aviso Legal se rige por la legislación española. Para la resolución de cualquier controversia 
-              que pudiera surgir, las partes se someterán a los Juzgados y Tribunales del domicilio del titular.
+              que pudiera surgir en relación con el uso de este sitio web, se aplicarán los Juzgados y Tribunales 
+              competentes conforme a la normativa procesal española.
             </p>
           </section>
         </div>
@@ -103,4 +104,3 @@ const Legal = () => {
 };
 
 export default Legal;
-

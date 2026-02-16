@@ -76,7 +76,7 @@ const Footer = () => {
             </div>
             <div>
               <p className="text-xs md:text-sm text-base-content/70 mb-2">¿Tienes preguntas?</p>
-              <a href="mailto:info@alvaropersonaltrainer.com" className="btn btn-primary text-primary-content btn-sm w-full md:w-auto">
+              <a href="https://wa.me/34625672358" target="_blank" rel="noopener noreferrer" className="btn btn-primary text-primary-content btn-sm w-full md:w-auto">
                 Contáctame
               </a>
             </div>

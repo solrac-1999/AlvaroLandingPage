@@ -50,8 +50,8 @@ const Hero = () => {
               <CalendlyButtonLarge />
             </div>
 
-            {/* Benefit Cards */}
-            <div className="mt-6 sm:mt-8 space-y-3">
+            {/* Benefit Cards - Desktop only */}
+            <div className="hidden lg:block mt-6 sm:mt-8 space-y-3">
               {benefitCards.map((card, index) => (
                 <div
                   key={index}
@@ -113,6 +113,25 @@ const Hero = () => {
           {/* Button - order 3 on mobile only, hidden on desktop */}
           <div className="w-full order-3 lg:hidden flex justify-center">
             <CalendlyButtonLarge />
+          </div>
+
+          {/* Benefit Cards - Mobile only (order 4) */}
+          <div className="w-full order-4 lg:hidden mt-6 space-y-3">
+            {benefitCards.map((card, index) => (
+              <div
+                key={index}
+                className="flex items-center gap-2 sm:gap-3 px-2 sm:px-3 py-2 sm:py-3 rounded-xl border-2 border-yellow-400 bg-yellow-400/10 max-w-fit mx-auto"
+              >
+                <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-yellow-400 flex items-center justify-center shrink-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 sm:h-4 sm:w-4 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <span className="text-xs sm:text-sm font-medium text-base-content">
+                  {card.text}
+                </span>
+              </div>
+            ))}
           </div>
         </div>
       </div>
