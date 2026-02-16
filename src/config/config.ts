@@ -1,4 +1,3 @@
-import themes from "daisyui/src/theming/themes";
 import { ConfigProps } from "./config.types";
 
 // REQUIRED (no https://, not trialing slash at the end, just the naked domain)
@@ -12,91 +11,6 @@ const config = {
     "Entrenamiento personal profesional para transformar tu cuerpo y vida. Planes personalizados de entrenamiento y nutrición adaptados a tus objetivos.",
   // REQUIRED
   domainName: domainName,
-  crisp: {
-    // Crisp website ID. IF YOU DON'T USE CRISP: just remove this => Then add a support email in this config file (mailgun.supportEmail) otherwise customer support won't work.
-    id: "",
-    // Hide Crisp by default, except on route "/". Crisp is toggled with <ButtonSupport/>. If you want to show Crisp on every routes, just remove this below
-    onlyShowOnRoutes: ["/"],
-  },
-  stripe: {
-    // Training packages - customize these in your Stripe dashboard
-    plans: [
-      {
-        priceId:
-          process.env.NODE_ENV === "development"
-            ? "price_online_mensual"
-            : "price_456",
-        name: "Plan Online Mensual",
-        description: "Entrenamiento personalizado desde casa",
-        isFeatured: false,
-        price: 49,
-        priceAnchor: 79,
-        features: [
-          { name: "Plan de entrenamiento mensual personalizado" },
-          { name: "Videos de ejercicios detallados" },
-          { name: "Chat de seguimiento semanal" },
-          { name: "Adaptación del plan según progreso" },
-          { name: "Acceso a app de seguimiento" },
-        ],
-      },
-      {
-        priceId:
-          process.env.NODE_ENV === "development"
-            ? "price_online_anual"
-            : "price_789",
-        name: "Plan Online Anual",
-        description: "Ahorra más con el compromiso anual",
-        isFeatured: true,
-        price: 399,
-        priceAnchor: 948,
-        features: [
-          { name: "Todo lo del plan mensual" },
-          { name: "Plan de nutrición incluido" },
-          { name: "Revisiones mensuales de progreso" },
-          { name: "Soporte priority por WhatsApp" },
-          { name: "Descuento en merchandising" },
-          { name: "2 meses gratis (ahorra €98)" },
-        ],
-      },
-      {
-        priceId:
-          process.env.NODE_ENV === "development"
-            ? "price_presencial"
-            : "price_101",
-        name: "Plan Presencial",
-        description: "Entrenamiento 1:1 en gimnasio",
-        isFeatured: false,
-        price: 299,
-        priceAnchor: 0,
-        features: [
-          { name: "Entrenamientos presenciales 2x/semana" },
-          { name: "Plan de nutrición personalizado" },
-          { name: "Evaluación corporal mensual" },
-          { name: "App de seguimiento 24/7" },
-          { name: "Acceso a comunidad privada" },
-          { name: "Sin permanencia" },
-        ],
-      },
-    ],
-  },
-  aws: {
-    // If you use AWS S3/Cloudfront, put values in here
-    bucket: "bucket-name",
-    bucketUrl: `https://bucket-name.s3.amazonaws.com/`,
-    cdn: "https://cdn-id.cloudfront.net/",
-  },
-  mailgun: {
-    // subdomain to use when sending emails, if you don't have a subdomain, just remove it. Highly recommended to have one (i.e. mg.yourdomain.com or mail.yourdomain.com)
-    subdomain: "mg",
-    // REQUIRED — Email 'From' field to be used when sending magic login links
-    fromNoReply: `Alvaro Personal Trainer <noreply@${domainName}>`,
-    // REQUIRED — Email 'From' field to be used when sending other emails, like abandoned carts, updates etc..
-    fromAdmin: `Alvaro Personal Trainer <hola@${domainName}>`,
-    // Email shown to customer if need support. Leave empty if not needed => if empty, set up Crisp above, otherwise you won't be able to offer customer support."
-    supportEmail: `hola@${domainName}`,
-    // When someone replies to supportEmail sent by the app, forward it to the email below (otherwise it's lost). If you set supportEmail to empty, this will be ignored.
-    forwardRepliesTo: `hola@${domainName}`,
-  },
   social: {
     instagram: "https://instagram.com/alvaropersonaltrainer",
     facebook: "https://facebook.com/alvaropersonaltrainer",
@@ -108,12 +22,6 @@ const config = {
     // REQUIRED — This color will be reflected on the whole app outside of the document (loading bar, Chrome tabs, etc..). By default it takes the primary color from your DaisyUI theme (make sure to update your the theme name after "data-theme=")
     // OR you can just do this to use a custom color: main: "#f37055". HEX only.
     main: "#FFD700",
-  },
-  auth: {
-    // REQUIRED — the path to log in users. It's use to protect private routes (like /dashboard). It's used in apiClient (/libs/api.js) upon 401 errors from our API
-    loginUrl: "/api/auth/signin",
-    // REQUIRED — the path you want to redirect users after successfull login (i.e. /dashboard, /private). This is normally a private page for users to manage their accounts. It's used in apiClient (/libs/api.js) upon 401 errors from our API & in ButtonSignin.js
-    callbackUrl: "/panel",
   },
 } as ConfigProps;
 

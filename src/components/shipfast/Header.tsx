@@ -12,9 +12,9 @@ const CALENDLY_URL = "https://calendly.com/alvaromdpersonalfitness/30min";
 // Botón compacto para header móvil
 const CalendlyButtonHeaderMobile = () => {
   const handleCalendlyClick = () => {
-    // @ts-ignore - Calendly se carga globalmente
+    // @ts-expect-error Calendly se carga globalmente desde el script externo
     if (window.Calendly) {
-      // @ts-ignore
+      // @ts-expect-error Calendly se carga globalmente desde el script externo
       window.Calendly.initPopupWidget({
         url: CALENDLY_URL,
         prefill: {},
@@ -84,30 +84,35 @@ const Header = () => {
           </Link>
         </div>
 
-        {/* Enlaces en pantallas grandes */}
-        <div className="hidden lg:flex lg:justify-center lg:gap-6 xl:gap-8 lg:items-center">
+        {/* Enlaces de navegación - Desktop */}
+        <div className="hidden lg:flex lg:gap-x-12">
           {links.map((link) => (
-            <Link href={link.href} key={link.href} className="link link-hover text-sm font-medium text-base-content hover:text-primary transition-colors" title={link.label}>
+            <Link
+              href={link.href}
+              key={link.href}
+              className="text-sm font-semibold leading-6 text-base-content hover:text-primary transition-colors"
+            >
               {link.label}
             </Link>
           ))}
         </div>
 
-        {/* CTA - visible en todas las pantallas */}
-        <div className="flex items-center gap-2 sm:gap-3 flex-1 justify-end">
-          <div className="lg:hidden">
-            <CalendlyButtonHeaderMobile />
-          </div>
+        {/* CTA y menú móvil */}
+        <div className="flex items-center gap-2 lg:gap-4">
+          {/* Botón Calendly - Desktop */}
           <div className="hidden lg:block">
             <CalendlyWidget />
           </div>
-        </div>
 
-        {/* Botón menú móvil - solo en tablet/desktop pequeño */}
-        <div className="hidden sm:flex lg:hidden items-center gap-2 ml-2">
+          {/* Botón Calendly - Móvil */}
+          <div className="lg:hidden">
+            <CalendlyButtonHeaderMobile />
+          </div>
+
+          {/* Botón menú móvil */}
           <button
             type="button"
-            className="-m-2.5 rounded-md p-2 text-base-content"
+            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 lg:hidden text-base-content"
             onClick={() => setIsOpen(true)}
           >
             <span className="sr-only">Abrir menú</span>

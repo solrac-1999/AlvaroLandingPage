@@ -1,10 +1,8 @@
 import { Suspense, lazy } from 'react'
-import Header from "@/components/shipfast/Header";
+import HeaderWrapper from "@/components/shipfast/HeaderWrapper";
 import Hero from "@/components/shipfast/Hero";
 import About from "@/components/shipfast/About";
 import Results from "@/components/shipfast/Results";
-import FAQ from "@/components/shipfast/FAQ";
-import TrustGuarantees from "@/components/shipfast/TrustGuarantees";
 import CTA from "@/components/shipfast/CTA";
 import Footer from "@/components/shipfast/Footer";
 
@@ -14,9 +12,7 @@ const TestimonialsCarousel = lazy(() => import("@/components/shipfast/Testimonia
 export default function Home() {
   return (
     <>
-      <Suspense>
-        <Header />
-      </Suspense>
+      <HeaderWrapper />
       <main>
         <Hero />
         <About />

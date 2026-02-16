@@ -120,22 +120,22 @@ const FaqItem = ({ item }: { item: FAQItem }) => {
 };
 
 const FAQ = () => {
-  // FAQ Schema for Rich Snippets in Google
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": faqList.map((faq) => ({
-      "@type": "Question",
-      "name": faq.question,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        "text": (faq.answer as any).props?.children?.props?.children?.flat?.(2)?.join(' ') || faq.question,
-      },
-    })),
-  };
-
   useEffect(() => {
+    // FAQ Schema for Rich Snippets in Google
+    const faqSchema = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqList.map((faq) => ({
+        "@type": "Question",
+        "name": faq.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          "text": (faq.answer as any).props?.children?.props?.children?.flat?.(2)?.join(' ') || faq.question,
+        },
+      })),
+    };
+
     // Inject FAQ Schema JSON-LD into head
     if (typeof document !== 'undefined') {
       const script = document.createElement('script');
@@ -182,4 +182,3 @@ const FAQ = () => {
 };
 
 export default FAQ;
-

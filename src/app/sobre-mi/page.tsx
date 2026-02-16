@@ -1,8 +1,7 @@
 import { Metadata } from "next";
 import Image from "next/image";
-import Header from "@/components/shipfast/Header";
+import HeaderWrapper from "@/components/shipfast/HeaderWrapper";
 import Footer from "@/components/shipfast/Footer";
-import config from "@/config";
 
 export const metadata: Metadata = {
   title: "Sobre Mí - Alvaro Personal Trainer",
@@ -20,7 +19,7 @@ export const metadata: Metadata = {
 export default function SobreMi() {
   return (
     <>
-      <Header />
+      <HeaderWrapper />
       <main className="pt-20">
         {/* Hero Section */}
         <section className="py-24 bg-base-100">
@@ -171,4 +170,3 @@ export default function SobreMi() {
     </>
   );
 }
-

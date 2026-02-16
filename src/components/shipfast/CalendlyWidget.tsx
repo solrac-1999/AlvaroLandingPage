@@ -1,12 +1,10 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 
 const CALENDLY_URL = "https://calendly.com/alvaromdpersonalfitness/30min";
 
 const CalendlyWidget = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
     // Cargar el script de Calendly
     const script = document.createElement("script");
@@ -26,9 +24,9 @@ const CalendlyWidget = () => {
   }, []);
 
   const handleCalendlyClick = () => {
-    // @ts-ignore - Calendly se carga globalmente
+    // @ts-expect-error Calendly se carga globalmente desde el script externo
     if (window.Calendly) {
-      // @ts-ignore
+      // @ts-expect-error Calendly se carga globalmente desde el script externo
       window.Calendly.initPopupWidget({
         url: CALENDLY_URL,
         prefill: {},
@@ -75,9 +73,9 @@ export default CalendlyWidget;
 // Componente versión botón grande (para Hero)
 export const CalendlyButtonLarge = () => {
   const handleCalendlyClick = () => {
-    // @ts-ignore - Calendly se carga globalmente
+    // @ts-expect-error Calendly se carga globalmente desde el script externo
     if (window.Calendly) {
-      // @ts-ignore
+      // @ts-expect-error Calendly se carga globalmente desde el script externo
       window.Calendly.initPopupWidget({
         url: CALENDLY_URL,
         prefill: {},
@@ -121,9 +119,9 @@ export const CalendlyButtonLarge = () => {
 // Componente versión botón secundario (para menú móvil)
 export const CalendlyButtonMobile = () => {
   const handleCalendlyClick = () => {
-    // @ts-ignore - Calendly se carga globalmente
+    // @ts-expect-error Calendly se carga globalmente desde el script externo
     if (window.Calendly) {
-      // @ts-ignore
+      // @ts-expect-error Calendly se carga globalmente desde el script externo
       window.Calendly.initPopupWidget({
         url: CALENDLY_URL,
         prefill: {},
@@ -163,4 +161,3 @@ export const CalendlyButtonMobile = () => {
     </>
   );
 };
-
