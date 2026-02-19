@@ -78,7 +78,7 @@ const Hero = () => {
                 <div className="relative w-full">
                   <video
                     className="w-full h-auto object-contain bg-black"
-                    src="/Hero.mp4"
+                    src="https://res.cloudinary.com/dpt42eidn/video/upload/v1771538829/Hero_comprimido_uwkn6w.mp4"
                     preload="metadata"
                     playsInline
                     muted
@@ -109,7 +109,7 @@ const Hero = () => {
                   className="w-full h-auto object-contain bg-black"
                   onEnded={() => setIsPlaying(false)}
                   onError={(e) => console.error("Error loading video:", e)}
-                  src="/Hero.mp4"
+                  src="https://res.cloudinary.com/dpt42eidn/video/upload/v1771538829/Hero_comprimido_uwkn6w.mp4"
                   crossOrigin="anonymous"
                 >
                   Tu navegador no soporta el elemento de video.

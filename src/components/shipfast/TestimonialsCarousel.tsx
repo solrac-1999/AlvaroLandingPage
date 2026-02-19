@@ -2,7 +2,18 @@
 
 import { useState } from "react";
 
-const videoCount = 8;
+const videoUrls = [
+  "https://res.cloudinary.com/dpt42eidn/video/upload/v1771539167/Testimonio_1_e5iemo.mp4",
+  "https://res.cloudinary.com/dpt42eidn/video/upload/v1771539167/Testimonio_2_jzgozo.mp4",
+  "https://res.cloudinary.com/dpt42eidn/video/upload/v1771539167/Testimonio_3_xdacob.mp4",
+  "https://res.cloudinary.com/dpt42eidn/video/upload/v1771539187/Testimonio_4_emaq2h.mp4",
+  "https://res.cloudinary.com/dpt42eidn/video/upload/v1771539173/Testimonio_5_wpgtpz.mp4",
+  "https://res.cloudinary.com/dpt42eidn/video/upload/v1771539171/Testimonio_6_ksbvib.mp4",
+  "https://res.cloudinary.com/dpt42eidn/video/upload/v1771539168/Testimonio_7_wqkqkf.mp4",
+  "https://res.cloudinary.com/dpt42eidn/video/upload/v1771539169/Testimonio_8_yhmh40.mp4",
+];
+
+const videoCount = videoUrls.length;
 
 const TestimonialsCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -17,6 +28,8 @@ const TestimonialsCarousel = () => {
     setCurrentIndex((prev) => (prev === videoCount - 1 ? 0 : prev + 1));
     setIsPlaying(false);
   };
+
+  const currentVideoUrl = videoUrls[currentIndex];
 
   const togglePlay = () => {
     setIsPlaying(!isPlaying);
@@ -50,7 +63,7 @@ const TestimonialsCarousel = () => {
                 <div className="absolute inset-0 w-full h-full">
                   <video
                     className="w-full h-full object-cover"
-                    src={`/Testimonio ${currentIndex + 1}.mp4`}
+                    src={currentVideoUrl}
                     preload="metadata"
                     playsInline
                     muted
@@ -86,7 +99,7 @@ const TestimonialsCarousel = () => {
                   className="w-full h-full object-cover"
                   onEnded={() => setIsPlaying(false)}
                   onError={(e) => console.error("Error loading video:", e)}
-                  src={`/Testimonio ${currentIndex + 1}.mp4`}
+                  src={currentVideoUrl}
                   crossOrigin="anonymous"
                 >
                   Tu navegador no soporta el elemento de video.
