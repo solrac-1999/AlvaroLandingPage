@@ -50,7 +50,7 @@ const TestimonialsCarousel = () => {
                 <div className="absolute inset-0 w-full h-full">
                   <video
                     className="w-full h-full object-cover"
-                    src={`/Testimonio ${currentIndex + 1}.MOV`}
+                    src={`/Testimonio ${currentIndex + 1}.mov`}
                     preload="metadata"
                   />
                   
@@ -79,7 +79,7 @@ const TestimonialsCarousel = () => {
                   controls
                   className="w-full h-full object-cover"
                   onEnded={() => setIsPlaying(false)}
-                  src={`/Testimonio ${currentIndex + 1}.MOV`}
+                  src={`/Testimonio ${currentIndex + 1}.mov`}
                 >
                   Tu navegador no soporta el elemento de video.
                 </video>
@@ -153,4 +153,3 @@ const TestimonialsCarousel = () => {
 };
 
 export default TestimonialsCarousel;
-

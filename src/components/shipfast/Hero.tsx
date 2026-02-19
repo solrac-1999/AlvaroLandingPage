@@ -78,7 +78,7 @@ const Hero = () => {
                 <div className="relative w-full">
                   <video
                     className="w-full h-auto object-contain bg-black"
-                    src="/Hero.MOV"
+                    src="/Hero.mov"
                     preload="metadata"
                   />
                   
@@ -102,7 +102,7 @@ const Hero = () => {
                   controls
                   className="w-full h-auto object-contain bg-black"
                   onEnded={() => setIsPlaying(false)}
-                  src="/Hero.MOV"
+                  src="/Hero.mov"
                 >
                   Tu navegador no soporta el elemento de video.
                 </video>
