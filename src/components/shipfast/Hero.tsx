@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { CalendlyButtonLarge } from "./CalendlyWidget";
 
 const Hero = () => {
@@ -76,11 +77,13 @@ const Hero = () => {
               {!isPlaying ? (
                 /* Thumbnail con botón de play */
                 <div className="relative w-full">
-                  <img
+                  <Image
                     className="w-full h-auto object-contain bg-black"
                     src="https://res.cloudinary.com/dpt42eidn/video/upload/w_800,h_450,c_fill,so_0/v1771538829/Hero_comprimido_uwkn6w.jpg"
                     alt="Preview del video"
-                    crossOrigin="anonymous"
+                    width={800}
+                    height={450}
+                    unoptimized
                   />
                   
                   {/* Overlay con botón de play */}

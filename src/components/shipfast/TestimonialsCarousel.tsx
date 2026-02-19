@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 const videoUrls = [
   "https://res.cloudinary.com/dpt42eidn/video/upload/v1771539167/Testimonio_1_e5iemo.mp4",
@@ -73,11 +74,13 @@ const TestimonialsCarousel = () => {
               {!isPlaying ? (
                 /* Thumbnail con botón de play */
                 <div className="absolute inset-0 w-full h-full">
-                  <img
+                  <Image
                     className="w-full h-full object-cover"
                     src={currentThumbnailUrl}
                     alt={`Testimonio ${currentIndex + 1}`}
-                    crossOrigin="anonymous"
+                    fill
+                    sizes="(max-width: 640px) 280px, (max-width: 768px) 360px, (max-width: 1024px) 450px, 405px"
+                    unoptimized
                   />
                   
                   {/* Overlay con botón de play */}
