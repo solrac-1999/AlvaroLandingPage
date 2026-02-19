@@ -5,6 +5,23 @@ import Image from "next/image";
 
 const imageCount = 14;
 
+const cloudinaryImages = [
+  "https://res.cloudinary.com/dpt42eidn/image/upload/v1771540492/Antes_y_despues_1_jkwybh.jpg",
+  "https://res.cloudinary.com/dpt42eidn/image/upload/v1771540492/Antes_y_despues_2_lnauia.jpg",
+  "https://res.cloudinary.com/dpt42eidn/image/upload/v1771540492/Antes_y_despues_3_bltjvk.jpg",
+  "https://res.cloudinary.com/dpt42eidn/image/upload/v1771540492/Antes_y_despues_4_qphsqq.jpg",
+  "https://res.cloudinary.com/dpt42eidn/image/upload/v1771540492/Antes_y_despues_5_q9wuxm.jpg",
+  "https://res.cloudinary.com/dpt42eidn/image/upload/v1771540492/Antes_y_despues_6_cjposp.jpg",
+  "https://res.cloudinary.com/dpt42eidn/image/upload/v1771540493/Antes_y_despues_7_kfgyjl.jpg",
+  "https://res.cloudinary.com/dpt42eidn/image/upload/v1771540493/Antes_y_despues_8_ecja8o.jpg",
+  "https://res.cloudinary.com/dpt42eidn/image/upload/v1771540493/Antes_y_despues_9_ttnhua.jpg",
+  "https://res.cloudinary.com/dpt42eidn/image/upload/v1771540493/Antes_y_despues_10_k1ypiv.jpg",
+  "https://res.cloudinary.com/dpt42eidn/image/upload/v1771540493/Antes_y_despues_11_ck333h.jpg",
+  "https://res.cloudinary.com/dpt42eidn/image/upload/v1771540493/Antes_y_despues_12_dlvtpu.jpg",
+  "https://res.cloudinary.com/dpt42eidn/image/upload/v1771540497/Antes_y_despues_13_eu6spd.jpg",
+  "https://res.cloudinary.com/dpt42eidn/image/upload/v1771540497/Antes_y_despues_14_amrpv5.jpg",
+];
+
 const Results = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -38,11 +55,12 @@ const Results = () => {
             {/* Main Image Container */}
             <div className="relative aspect-[4/3] md:aspect-[16/10] rounded-2xl overflow-hidden bg-base-200">
               <Image
-                src={`/Antes y despues ${currentIndex + 1}.jpg`}
+                src={cloudinaryImages[currentIndex]}
                 alt={`Transformación ${currentIndex + 1}`}
                 fill
                 className="object-cover"
                 priority
+                unoptimized
               />
               
               {/* Label */}
@@ -115,4 +133,3 @@ const Results = () => {
 };
 
 export default Results;
-
