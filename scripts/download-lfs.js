@@ -1,21 +1,16 @@
 #!/usr/bin/env node
 
 /**
- * Script para descargar archivos Git LFS antes del build en Vercel
+ * Script para manejar archivos Git LFS antes del build en Vercel
  * 
- * Este script se ejecuta durante el proceso de build para asegurar
- * que los archivos de video (Git LFS) estén disponibles.
+ * Si Git LFS falla, este script muestra instrucciones para migrar a archivos normales
  */
 
 const { execSync } = require('child_process');
 const fs = require('fs');
 const path = require('path');
 
-console.log('🔍 Verificando archivos Git LFS...');
-
-// Verificar si estamos en Vercel
-const isVercel = process.env.VERCEL === '1';
-console.log(`📍 Entorno: ${isVercel ? 'Vercel' : 'Local/Other'}`);
+console.log('🔍 Verificando archivos de video...\n');
 
 // Lista de archivos de video esperados
 const videoFiles = [
@@ -46,7 +41,7 @@ function isLfsPointer(filePath) {
 }
 
 // Verificar estado de los archivos
-let needsLfsPull = false;
+let lfsPointersFound = false;
 const missingFiles = [];
 
 for (const file of videoFiles) {
@@ -54,48 +49,45 @@ for (const file of videoFiles) {
   
   if (!fs.existsSync(fullPath)) {
     missingFiles.push(file);
-    needsLfsPull = true;
   } else if (isLfsPointer(fullPath)) {
-    console.log(`⚠️  ${file} es un puntero LFS (no descargado)`);
-    needsLfsPull = true;
+    console.log(`❌ ${file} es un PUNTERO LFS (no el video real)`);
+    lfsPointersFound = true;
   } else {
     const stats = fs.statSync(fullPath);
     console.log(`✅ ${file} - ${(stats.size / 1024 / 1024).toFixed(2)} MB`);
   }
 }
 
+console.log('');
+
+// Si encontramos punteros LFS, mostrar solución
+if (lfsPointersFound) {
+  console.log('🚨 PROBLEMA DETECTADO: Los videos están en Git LFS');
+  console.log('');
+  console.log('💡 SOLUCIÓN: Debes migrar los videos de Git LFS a archivos normales.');
+  console.log('');
+  console.log('📋 Pasos a seguir LOCALMENTE (en tu computadora):');
+  console.log('');
+  console.log('1. Ejecuta el script de migración:');
+  console.log('   bash scripts/migrate-from-lfs.sh');
+  console.log('');
+  console.log('2. O manualmente:');
+  console.log('   git lfs untrack "*.mp4"');
+  console.log('   git rm --cached public/*.mp4');
+  console.log('   git add public/*.mp4');
+  console.log('   git commit -m "Remove videos from Git LFS"');
+  console.log('   git push');
+  console.log('');
+  console.log('⚠️  NOTA: Si tus videos son >100MB cada uno, GitHub rechazará el push.');
+  console.log('   En ese caso, usa un CDN externo (Cloudinary, Mux, etc.)');
+  console.log('');
+  process.exit(1); // Fallar el build para que el usuario vea el mensaje
+}
+
 if (missingFiles.length > 0) {
-  console.log(`\n❌ Archivos faltantes: ${missingFiles.join(', ')}`);
+  console.log(`❌ Archivos faltantes: ${missingFiles.join(', ')}`);
+  process.exit(1);
 }
 
-// Si necesitamos descargar archivos LFS
-if (needsLfsPull) {
-  console.log('\n🔄 Intentando descargar archivos Git LFS...');
-  
-  try {
-    // Verificar si git-lfs está instalado
-    execSync('git lfs version', { stdio: 'ignore' });
-    
-    // Descargar archivos LFS
-    console.log('⬇️  Ejecutando git lfs pull...');
-    execSync('git lfs pull', { 
-      stdio: 'inherit',
-      cwd: process.cwd()
-    });
-    
-    console.log('✅ Archivos LFS descargados correctamente');
-  } catch (error) {
-    console.error('❌ Error al descargar archivos LFS:', error.message);
-    console.log('\n⚠️  ADVERTENCIA: Los videos pueden no funcionar correctamente');
-    
-    // En Vercel, si falla LFS, podemos intentar con la API de GitHub
-    if (isVercel && process.env.GITHUB_TOKEN) {
-      console.log('🔄 Intentando descargar desde GitHub API...');
-      // Aquí podríamos implementar descarga desde GitHub API
-    }
-  }
-} else {
-  console.log('\n✅ Todos los archivos de video están disponibles');
-}
-
-console.log('\n🎉 Verificación de archivos completada\n');
+console.log('✅ Todos los archivos de video están disponibles correctamente\n');
+process.exit(0);
