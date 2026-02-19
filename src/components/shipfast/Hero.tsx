@@ -78,8 +78,11 @@ const Hero = () => {
                 <div className="relative w-full">
                   <video
                     className="w-full h-auto object-contain bg-black"
-                    src="/Hero.mov"
+                    src="/Hero.mp4"
                     preload="metadata"
+                    playsInline
+                    muted
+                    crossOrigin="anonymous"
                   />
                   
                   {/* Overlay con botón de play */}
@@ -98,11 +101,16 @@ const Hero = () => {
               ) : (
                 /* Video reproduciéndose */
                 <video
+                  key="hero-video"
                   autoPlay
                   controls
+                  playsInline
+                  muted
                   className="w-full h-auto object-contain bg-black"
                   onEnded={() => setIsPlaying(false)}
-                  src="/Hero.mov"
+                  onError={(e) => console.error("Error loading video:", e)}
+                  src="/Hero.mp4"
+                  crossOrigin="anonymous"
                 >
                   Tu navegador no soporta el elemento de video.
                 </video>

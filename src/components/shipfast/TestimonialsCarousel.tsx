@@ -50,8 +50,11 @@ const TestimonialsCarousel = () => {
                 <div className="absolute inset-0 w-full h-full">
                   <video
                     className="w-full h-full object-cover"
-                    src={`/Testimonio ${currentIndex + 1}.mov`}
+                    src={`/Testimonio ${currentIndex + 1}.mp4`}
                     preload="metadata"
+                    playsInline
+                    muted
+                    crossOrigin="anonymous"
                   />
                   
                   {/* Overlay con botón de play */}
@@ -75,11 +78,16 @@ const TestimonialsCarousel = () => {
               ) : (
                 /* Video reproduciéndose */
                 <video
+                  key={`testimonial-video-${currentIndex}`}
                   autoPlay
                   controls
+                  playsInline
+                  muted
                   className="w-full h-full object-cover"
                   onEnded={() => setIsPlaying(false)}
-                  src={`/Testimonio ${currentIndex + 1}.mov`}
+                  onError={(e) => console.error("Error loading video:", e)}
+                  src={`/Testimonio ${currentIndex + 1}.mp4`}
+                  crossOrigin="anonymous"
                 >
                   Tu navegador no soporta el elemento de video.
                 </video>
