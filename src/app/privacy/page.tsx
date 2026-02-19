@@ -24,7 +24,7 @@ const Privacy = () => {
             </p>
             <ul className="list-disc pl-6 space-y-2">
               <li><strong>Responsable:</strong> Alvaro Martin Diaz</li>
-              <li><strong>Correo electrónico:</strong> hola@alvaropersonaltrainer.com</li>
+              <li><strong>Correo electrónico:</strong> alvaromdpersonalfitness@gmail.com</li>
             </ul>
             <p className="mt-4 text-sm text-base-content/70">
               Este sitio web es gestionado por un particular. Para cualquier consulta relacionada con la protección de datos, 
@@ -104,7 +104,7 @@ const Privacy = () => {
               <li><strong>Portabilidad:</strong> Recibir sus datos en un formato estructurado.</li>
             </ul>
             <p className="mt-4">
-              Para ejercer estos derechos, puede enviar un correo electrónico a hola@alvaropersonaltrainer.com 
+              Para ejercer estos derechos, puede enviar un correo electrónico a alvaromdpersonalfitness@gmail.com 
               indicando claramente el derecho que desea ejercer y proporcionando la información necesaria para 
               identificar su solicitud.
             </p>

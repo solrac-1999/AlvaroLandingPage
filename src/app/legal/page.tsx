@@ -23,7 +23,7 @@ const Legal = () => {
             </p>
             <ul className="list-disc pl-6 space-y-2">
               <li><strong>Titular:</strong> Alvaro Martin Diaz</li>
-              <li><strong>Correo electrónico de contacto:</strong> hola@alvaropersonaltrainer.com</li>
+              <li><strong>Correo electrónico de contacto:</strong> alvaromdpersonalfitness@gmail.com</li>
             </ul>
             <p className="mt-4 text-sm text-base-content/70">
               Este sitio web es de carácter personal y no constituye una actividad empresarial formal. Para cualquier consulta, contacto o ejercicio de derechos, utilice el correo electrónico proporcionado.
@@ -33,7 +33,7 @@ const Legal = () => {
           <section className="mb-8">
             <h2 className="text-2xl font-bold mb-4 text-base-content">2. Objeto y Aceptación</h2>
             <p className="mb-4">
-              El presente aviso legal regula el uso del sitio web https://alvaropersonaltrainer.com (en adelante, &quot;el sitio web&quot;). 
+              El presente aviso legal regula el uso del sitio web https://alvaropersonaltrainer.com (en adelante, "el sitio web"). 
               La navegación por el sitio web implica la aceptación plena y sin reservas de todas las disposiciones incluidas en este Aviso Legal.
             </p>
           </section>

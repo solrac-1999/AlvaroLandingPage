@@ -149,7 +149,7 @@ const Cookies = () => {
               Si tiene alguna pregunta sobre nuestra Política de Cookies, puede contactarnos en:
             </p>
             <ul className="list-disc pl-6 space-y-2">
-              <li><strong>Email:</strong> hola@alvaropersonaltrainer.com</li>
+              <li><strong>Email:</strong> alvaromdpersonalfitness@gmail.com</li>
             </ul>
           </section>
         </div>

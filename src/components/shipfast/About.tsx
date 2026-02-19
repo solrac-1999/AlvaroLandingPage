@@ -10,7 +10,7 @@ const About = () => {
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-center">
           {/* Trainer Image - order 2 on mobile, left on desktop */}
           <div className="lg:w-1/2 relative w-full order-2 lg:order-1">
-            <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[600px] rounded-2xl overflow-hidden">
+            <div className="relative w-full h-[450px] sm:h-[400px] lg:h-[600px] rounded-2xl overflow-hidden">
               <Image
                 src={"/Sobre_mi.PNG"}
                 alt="Alvaro - Entrenador Personal"

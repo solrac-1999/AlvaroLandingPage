@@ -12,12 +12,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: `${baseUrl}/sobre-mi`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
       url: `${baseUrl}/privacy`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
@@ -43,4 +37,3 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 }
-
