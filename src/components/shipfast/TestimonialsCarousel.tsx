@@ -13,6 +13,17 @@ const videoUrls = [
   "https://res.cloudinary.com/dpt42eidn/video/upload/v1771539169/Testimonio_8_yhmh40.mp4",
 ];
 
+const thumbnailUrls = [
+  "https://res.cloudinary.com/dpt42eidn/video/upload/w_400,h_711,c_fill,so_0/v1771539167/Testimonio_1_e5iemo.jpg",
+  "https://res.cloudinary.com/dpt42eidn/video/upload/w_400,h_711,c_fill,so_0/v1771539167/Testimonio_2_jzgozo.jpg",
+  "https://res.cloudinary.com/dpt42eidn/video/upload/w_400,h_711,c_fill,so_0/v1771539167/Testimonio_3_xdacob.jpg",
+  "https://res.cloudinary.com/dpt42eidn/video/upload/w_400,h_711,c_fill,so_0/v1771539187/Testimonio_4_emaq2h.jpg",
+  "https://res.cloudinary.com/dpt42eidn/video/upload/w_400,h_711,c_fill,so_0/v1771539173/Testimonio_5_wpgtpz.jpg",
+  "https://res.cloudinary.com/dpt42eidn/video/upload/w_400,h_711,c_fill,so_0/v1771539171/Testimonio_6_ksbvib.jpg",
+  "https://res.cloudinary.com/dpt42eidn/video/upload/w_400,h_711,c_fill,so_0/v1771539168/Testimonio_7_wqkqkf.jpg",
+  "https://res.cloudinary.com/dpt42eidn/video/upload/w_400,h_711,c_fill,so_0/v1771539169/Testimonio_8_yhmh40.jpg",
+];
+
 const videoCount = videoUrls.length;
 
 const TestimonialsCarousel = () => {
@@ -30,6 +41,7 @@ const TestimonialsCarousel = () => {
   };
 
   const currentVideoUrl = videoUrls[currentIndex];
+  const currentThumbnailUrl = thumbnailUrls[currentIndex];
 
   const togglePlay = () => {
     setIsPlaying(!isPlaying);
@@ -61,12 +73,10 @@ const TestimonialsCarousel = () => {
               {!isPlaying ? (
                 /* Thumbnail con botón de play */
                 <div className="absolute inset-0 w-full h-full">
-                  <video
+                  <img
                     className="w-full h-full object-cover"
-                    src={currentVideoUrl}
-                    preload="metadata"
-                    playsInline
-                    muted
+                    src={currentThumbnailUrl}
+                    alt={`Testimonio ${currentIndex + 1}`}
                     crossOrigin="anonymous"
                   />
                   
@@ -95,7 +105,6 @@ const TestimonialsCarousel = () => {
                   autoPlay
                   controls
                   playsInline
-                  muted
                   className="w-full h-full object-cover"
                   onEnded={() => setIsPlaying(false)}
                   onError={(e) => console.error("Error loading video:", e)}

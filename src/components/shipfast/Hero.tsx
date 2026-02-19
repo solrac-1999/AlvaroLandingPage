@@ -76,12 +76,10 @@ const Hero = () => {
               {!isPlaying ? (
                 /* Thumbnail con botón de play */
                 <div className="relative w-full">
-                  <video
+                  <img
                     className="w-full h-auto object-contain bg-black"
-                    src="https://res.cloudinary.com/dpt42eidn/video/upload/v1771538829/Hero_comprimido_uwkn6w.mp4"
-                    preload="metadata"
-                    playsInline
-                    muted
+                    src="https://res.cloudinary.com/dpt42eidn/video/upload/w_800,h_450,c_fill,so_0/v1771538829/Hero_comprimido_uwkn6w.jpg"
+                    alt="Preview del video"
                     crossOrigin="anonymous"
                   />
                   
@@ -105,7 +103,6 @@ const Hero = () => {
                   autoPlay
                   controls
                   playsInline
-                  muted
                   className="w-full h-auto object-contain bg-black"
                   onEnded={() => setIsPlaying(false)}
                   onError={(e) => console.error("Error loading video:", e)}
