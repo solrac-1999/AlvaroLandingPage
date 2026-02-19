@@ -27,7 +27,7 @@ export default function SobreMi() {
             <div className="flex flex-col lg:flex-row gap-12 items-center max-w-6xl mx-auto">
               {/* Image */}
               <div className="lg:w-1/2">
-                <div className="relative aspect-square rounded-2xl overflow-hidden">
+                <div className="relative aspect-[4/5] lg:aspect-square rounded-2xl overflow-hidden">
                   <Image
                     src="/Entrenamiento.jpg"
                     alt="Alvaro Personal Trainer - Profesional del fitness con más de 10 años de experiencia"
