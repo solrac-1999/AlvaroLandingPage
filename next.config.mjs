@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: ['pbs.twimg.com'],
+        domains: ['pbs.twimg.com', 'ik.imagekit.io'],
         formats: ['image/avif', 'image/webp'],
     },
     compress: true,

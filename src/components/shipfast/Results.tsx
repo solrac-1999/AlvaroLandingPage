@@ -3,23 +3,25 @@
 import { useState } from "react";
 import Image from "next/image";
 
-const imageCount = 14;
+const imageCount = 16;
 
 const cloudinaryImages = [
-  "https://res.cloudinary.com/dpt42eidn/image/upload/v1771540492/Antes_y_despues_1_jkwybh.jpg",
-  "https://res.cloudinary.com/dpt42eidn/image/upload/v1771540492/Antes_y_despues_2_lnauia.jpg",
-  "https://res.cloudinary.com/dpt42eidn/image/upload/v1771540492/Antes_y_despues_3_bltjvk.jpg",
-  "https://res.cloudinary.com/dpt42eidn/image/upload/v1771540492/Antes_y_despues_4_qphsqq.jpg",
-  "https://res.cloudinary.com/dpt42eidn/image/upload/v1771540492/Antes_y_despues_5_q9wuxm.jpg",
-  "https://res.cloudinary.com/dpt42eidn/image/upload/v1771540492/Antes_y_despues_6_cjposp.jpg",
-  "https://res.cloudinary.com/dpt42eidn/image/upload/v1771540493/Antes_y_despues_7_kfgyjl.jpg",
-  "https://res.cloudinary.com/dpt42eidn/image/upload/v1771540493/Antes_y_despues_8_ecja8o.jpg",
-  "https://res.cloudinary.com/dpt42eidn/image/upload/v1771540493/Antes_y_despues_9_ttnhua.jpg",
-  "https://res.cloudinary.com/dpt42eidn/image/upload/v1771540493/Antes_y_despues_10_k1ypiv.jpg",
-  "https://res.cloudinary.com/dpt42eidn/image/upload/v1771540493/Antes_y_despues_11_ck333h.jpg",
-  "https://res.cloudinary.com/dpt42eidn/image/upload/v1771540493/Antes_y_despues_12_dlvtpu.jpg",
-  "https://res.cloudinary.com/dpt42eidn/image/upload/v1771540497/Antes_y_despues_13_eu6spd.jpg",
-  "https://res.cloudinary.com/dpt42eidn/image/upload/v1771540497/Antes_y_despues_14_amrpv5.jpg",
+  "https://ik.imagekit.io/alvaropersonal/Antes%20y%20despues%201.jpg",
+  "https://ik.imagekit.io/alvaropersonal/Antes%20y%20despues%202.jpg",
+  "https://ik.imagekit.io/alvaropersonal/Antes%20y%20despues%203.jpg",
+  "https://ik.imagekit.io/alvaropersonal/Antes%20y%20despues%204.jpg",
+  "https://ik.imagekit.io/alvaropersonal/Antes%20y%20despues%205.jpg",
+  "https://ik.imagekit.io/alvaropersonal/Antes%20y%20despues%206.jpg",
+  "https://ik.imagekit.io/alvaropersonal/Antes%20y%20despues%207.jpg",
+  "https://ik.imagekit.io/alvaropersonal/Antes%20y%20despues%208.jpg",
+  "https://ik.imagekit.io/alvaropersonal/Antes%20y%20despues%209.jpg",
+  "https://ik.imagekit.io/alvaropersonal/Antes%20y%20despues%2010.jpg",
+  "https://ik.imagekit.io/alvaropersonal/Antes%20y%20despues%2011.jpg",
+  "https://ik.imagekit.io/alvaropersonal/Antes%20y%20despues%2012.jpg",
+  "https://ik.imagekit.io/alvaropersonal/Antes%20y%20despues%2013.jpg",
+  "https://ik.imagekit.io/alvaropersonal/Antes%20y%20despues%2014.jpg",
+  "https://ik.imagekit.io/alvaropersonal/Antes%20y%20despues%2015.jpg",
+  "https://ik.imagekit.io/alvaropersonal/Antes%20y%20despues%2016.jpg",
 ];
 
 const Results = () => {

@@ -4,25 +4,25 @@ import { useState } from "react";
 import Image from "next/image";
 
 const videoUrls = [
-  "https://res.cloudinary.com/dpt42eidn/video/upload/v1771539167/Testimonio_1_e5iemo.mp4",
-  "https://res.cloudinary.com/dpt42eidn/video/upload/v1771539167/Testimonio_2_jzgozo.mp4",
-  "https://res.cloudinary.com/dpt42eidn/video/upload/v1771539167/Testimonio_3_xdacob.mp4",
-  "https://res.cloudinary.com/dpt42eidn/video/upload/v1771539187/Testimonio_4_emaq2h.mp4",
-  "https://res.cloudinary.com/dpt42eidn/video/upload/v1771539173/Testimonio_5_wpgtpz.mp4",
-  "https://res.cloudinary.com/dpt42eidn/video/upload/v1771539171/Testimonio_6_ksbvib.mp4",
-  "https://res.cloudinary.com/dpt42eidn/video/upload/v1771539168/Testimonio_7_wqkqkf.mp4",
-  "https://res.cloudinary.com/dpt42eidn/video/upload/v1771539169/Testimonio_8_yhmh40.mp4",
+  "https://ik.imagekit.io/alvaropersonal/Testimonio%201.mp4",
+  "https://ik.imagekit.io/alvaropersonal/Testimonio%202.mp4",
+  "https://ik.imagekit.io/alvaropersonal/Testimonio%203.mp4",
+  "https://ik.imagekit.io/alvaropersonal/Testimonio%204.mp4",
+  "https://ik.imagekit.io/alvaropersonal/Testimonio%205.mp4",
+  "https://ik.imagekit.io/alvaropersonal/Testimonio%206.mp4",
+  "https://ik.imagekit.io/alvaropersonal/Testimonio%207.mp4",
+  "https://ik.imagekit.io/alvaropersonal/Testimonio%208.mp4",
 ];
 
 const thumbnailUrls = [
-  "https://res.cloudinary.com/dpt42eidn/video/upload/w_400,h_711,c_fill,so_0/v1771539167/Testimonio_1_e5iemo.jpg",
-  "https://res.cloudinary.com/dpt42eidn/video/upload/w_400,h_711,c_fill,so_0/v1771539167/Testimonio_2_jzgozo.jpg",
-  "https://res.cloudinary.com/dpt42eidn/video/upload/w_400,h_711,c_fill,so_0/v1771539167/Testimonio_3_xdacob.jpg",
-  "https://res.cloudinary.com/dpt42eidn/video/upload/w_400,h_711,c_fill,so_0/v1771539187/Testimonio_4_emaq2h.jpg",
-  "https://res.cloudinary.com/dpt42eidn/video/upload/w_400,h_711,c_fill,so_0/v1771539173/Testimonio_5_wpgtpz.jpg",
-  "https://res.cloudinary.com/dpt42eidn/video/upload/w_400,h_711,c_fill,so_0/v1771539171/Testimonio_6_ksbvib.jpg",
-  "https://res.cloudinary.com/dpt42eidn/video/upload/w_400,h_711,c_fill,so_0/v1771539168/Testimonio_7_wqkqkf.jpg",
-  "https://res.cloudinary.com/dpt42eidn/video/upload/w_400,h_711,c_fill,so_0/v1771539169/Testimonio_8_yhmh40.jpg",
+  "https://ik.imagekit.io/alvaropersonal/Testimonio%201.mp4/ik-thumbnail.jpg",
+  "https://ik.imagekit.io/alvaropersonal/Testimonio%202.mp4/ik-thumbnail.jpg",
+  "https://ik.imagekit.io/alvaropersonal/Testimonio%203.mp4/ik-thumbnail.jpg",
+  "https://ik.imagekit.io/alvaropersonal/Testimonio%204.mp4/ik-thumbnail.jpg",
+  "https://ik.imagekit.io/alvaropersonal/Testimonio%205.mp4/ik-thumbnail.jpg",
+  "https://ik.imagekit.io/alvaropersonal/Testimonio%206.mp4/ik-thumbnail.jpg",
+  "https://ik.imagekit.io/alvaropersonal/Testimonio%207.mp4/ik-thumbnail.jpg",
+  "https://ik.imagekit.io/alvaropersonal/Testimonio%208.mp4/ik-thumbnail.jpg",
 ];
 
 const videoCount = videoUrls.length;
@@ -164,7 +164,7 @@ const TestimonialsCarousel = () => {
         {/* Trust indicators */}
         <div className="mt-12 md:mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 text-center">
           <div>
-            <p className="text-2xl md:text-4xl font-extrabold text-primary">500+</p>
+            <p className="text-2xl md:text-4xl font-extrabold text-primary">100+</p>
             <p className="text-xs md:text-sm opacity-70">Clientes satisfechos</p>
           </div>
           <div>
